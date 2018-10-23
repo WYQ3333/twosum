@@ -57,9 +57,9 @@ int* twoSum(int* nums, int numsSize, int target) {
 
 int main()
 {
-	int array[] = {-3,-2,-4};
+	int array[] = {2,7,11,15};
 	int numsSize = sizeof(array) / sizeof(array[0]);
-	int target = -6;
+	int target = 9;
 	int *cur = twoSum(array, numsSize, target);
 	printf("%d ", *cur);
 	printf("%d ", *(cur+1));
