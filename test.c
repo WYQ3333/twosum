@@ -12,17 +12,39 @@
 /**
 * Note: The returned array must be malloced, assume caller calls free().
 */
+//没有考虑全为负数的情况
+//int* twoSum(int* nums, int numsSize, int target) {
+//	int i = 0;
+//	int j = 0;
+//	int tmp = -1;
+//	static int array[3] = { 0 };//加static可以保证返回的变量不消失
+//	for (i = 0; i<numsSize; i++)
+//	{
+//		tmp = nums[i]<target ? (target - nums[i]) : (nums[i] - target);
+//		for (j = i + 1; j<numsSize; j++)
+//		{
+//			if (tmp == nums[j])
+//			{
+//				array[0] = nums[i];
+//				array[1] = nums[j];
+//				return array;//找到了
+//			}
+//		}
+//	}
+//	return NULL;//没找到
+//}
+
 int* twoSum(int* nums, int numsSize, int target) {
 	int i = 0;
 	int j = 0;
 	int tmp = -1;
-	static int array[3] = { 0 };//加static可以保证返回的变量不消失
+	static int array[3] = { 0 };
 	for (i = 0; i<numsSize; i++)
 	{
-		tmp = nums[i]<target ? (target - nums[i]) : (nums[i] - target);
 		for (j = i + 1; j<numsSize; j++)
 		{
-			if (tmp == nums[j])
+			tmp = nums[i] + nums[j];
+			if (tmp == target)
 			{
 				array[0] = nums[i];
 				array[1] = nums[j];
@@ -35,9 +57,9 @@ int* twoSum(int* nums, int numsSize, int target) {
 
 int main()
 {
-	int array[] = {3,2,4};
+	int array[] = {-3,-2,-4};
 	int numsSize = sizeof(array) / sizeof(array[0]);
-	int target = 6;
+	int target = -6;
 	int *cur = twoSum(array, numsSize, target);
 	printf("%d ", *cur);
 	printf("%d ", *(cur+1));
