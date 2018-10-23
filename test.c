@@ -20,7 +20,7 @@ int* twoSum(int* nums, int numsSize, int target) {
 	for (i = 0; i<numsSize; i++)
 	{
 		tmp = nums[i]<target ? (target - nums[i]) : (nums[i] - target);
-		for (j = i + 1; i<numsSize; j++)
+		for (j = i + 1; j<numsSize; j++)
 		{
 			if (tmp == nums[j])
 			{
@@ -35,9 +35,9 @@ int* twoSum(int* nums, int numsSize, int target) {
 
 int main()
 {
-	int array[] = { 2, 7, 11, 15 };
+	int array[] = {3,2,4};
 	int numsSize = sizeof(array) / sizeof(array[0]);
-	int target = 9;
+	int target = 6;
 	int *cur = twoSum(array, numsSize, target);
 	printf("%d ", *cur);
 	printf("%d ", *(cur+1));
